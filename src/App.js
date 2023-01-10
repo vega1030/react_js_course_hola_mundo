@@ -1,32 +1,24 @@
-import Button from "./Button.js";
+import { Component } from 'react'
 
-//arrays and your keys
-
-const arr = [
-    'chanchito feliz',
-    'chanchito triste',
-    'chanchito emocionado'
-]
-
-const App = () => {
-
-    const validate = false
-    if (validate) {
-        return <p>Mi variable es true</p>
+class App extends Component {
+    state = {
+        valor:3
     }
-
-    return (
-        <div>
-
-            <h1 onClick={ (e) => console.log('click', e) }>
-                Hola Mundo
-            </h1>
-            {/* se debe pasar un key para identificar cada elemento p */}
-            { arr.map(el => <p key={el}>{ el }</p>) }
-
-            <Button onClick={ () => console.log('clickeado') }> Enviar </Button>
-        </div>
-    )
+    render() {
+        console.log(this.state)
+        return (
+            <div>
+                <p>Hola Mundo</p>
+                <button 
+                className={`${this.state.valor}`}
+                onClick={ () => this.setState({ valor: 2 }) }>
+                    Enviar
+                </button>
+            </div>
+        )
+    }
 }
+
+
 
 export default App
